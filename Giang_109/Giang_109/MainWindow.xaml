@@ -1,0 +1,67 @@
+﻿<Window x:Class="Giang_109.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Giang_109"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource header}">Quản lý sản phẩm</TextBlock>
+        <!--dong 1-->
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource label}">Mã sản phẩm</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="txtmasp" Style="{StaticResource textbox}"></TextBox>
+        <!--dong 2-->
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource label}">Tên sản phẩm</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="txttensp" Style="{StaticResource textbox}"></TextBox>
+        <!--dong 3-->
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource label}">Số lượng</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="txtsoluong" Style="{StaticResource textbox}"></TextBox>
+        <!--dong 4  -->
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource label}">Đơn giá</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Name="txtdongia" Style="{StaticResource textbox}"></TextBox>
+        <!--dong 5-->
+        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource label}">Mã loại</Label>
+        <ComboBox x:Name="cbmaloai" Grid.Row="5" Grid.Column="1"  Style="{StaticResource combobox}">
+            <!--<ComboBoxItem Content=""/>-->
+            </ComboBox>
+        <DataGrid Name="dgDanhsach" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" SelectedCellsChanged="dgDanhsach_SelectedCellsChanged" SelectionChanged="dgDanhsach_SelectionChanged" Style="{StaticResource grid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding msp}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding tensp}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tên loại sản phẩm" Binding="{Binding tenlsp}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Đơn giá" Binding="{Binding dongia}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Số lượng" Binding="{Binding soluong}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Thành tiền" Width="*" Binding="{Binding thanhtien}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="Red"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--dong 7-->
+        <StackPanel  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Name="btnthem" Style="{StaticResource button}" Click="btnthem_Click">Thêm</Button>
+            <Button Name="btnsua" Style="{StaticResource button}" Click="btnsua_Click">Sửa</Button>
+            <Button Name="btnxoa" Style="{StaticResource button}" Click="btnxoa_Click">Xóa</Button>
+            <Button Name="btntim" Style="{StaticResource button}" Click="btntim_Click">Tìm</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
